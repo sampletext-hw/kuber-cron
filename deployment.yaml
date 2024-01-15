@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scrubber-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scrubber
+  template:
+    metadata:
+      labels:
+        app: scrubber
+    spec:
+      containers:
+        - name: scrubber
+          image: scrubber:v1
+          ports:
+            - containerPort: 80
